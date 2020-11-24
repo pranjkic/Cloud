@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Desktop\\Master\\Racunarstvo u oblaku\\WebServer\\WebServer\\WebServer.csproj": {}
+    "D:\\Desktop\\Master\\Racunarstvo u oblaku\\Cloud\\WebServer\\WebServer\\WebServer.csproj": {}
   },
   "projects": {
-    "D:\\Desktop\\Master\\Racunarstvo u oblaku\\WebServer\\WebServer\\WebServer.csproj": {
+    "D:\\Desktop\\Master\\Racunarstvo u oblaku\\Cloud\\WebServer\\WebServer\\WebServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Desktop\\Master\\Racunarstvo u oblaku\\WebServer\\WebServer\\WebServer.csproj",
+        "projectUniqueName": "D:\\Desktop\\Master\\Racunarstvo u oblaku\\Cloud\\WebServer\\WebServer\\WebServer.csproj",
         "projectName": "WebServer",
-        "projectPath": "D:\\Desktop\\Master\\Racunarstvo u oblaku\\WebServer\\WebServer\\WebServer.csproj",
+        "projectPath": "D:\\Desktop\\Master\\Racunarstvo u oblaku\\Cloud\\WebServer\\WebServer\\WebServer.csproj",
         "packagesPath": "C:\\Users\\Pranjkic\\.nuget\\packages\\",
-        "outputPath": "D:\\Desktop\\Master\\Racunarstvo u oblaku\\WebServer\\WebServer\\obj\\",
+        "outputPath": "D:\\Desktop\\Master\\Racunarstvo u oblaku\\Cloud\\WebServer\\WebServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Pranjkic\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -37,6 +37,22 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
