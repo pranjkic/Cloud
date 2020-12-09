@@ -1,0 +1,6 @@
+django
+djangorestframework
+django-rest-knox
+gunicorn
+psycopg2
+django-environ
