@@ -18,7 +18,12 @@ services:
       - .:/code
     ports:
       - "8000:8000"
+    container_name: web
     env_file:
     - restApi/.env
     depends_on:
       - db
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
