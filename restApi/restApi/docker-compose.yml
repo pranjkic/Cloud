@@ -12,18 +12,17 @@ services:
       - POSTGRES_USER=cloud_admin
       - POSTGRES_PASSWORD=password
   web:
-    build: .
-    #command: python manage.py runserver 0.0.0.0:8000
+    build: ./restApi/restApi
     volumes:
       - .:/code
     ports:
       - "8000:8000"
     container_name: web
     env_file:
-    - restApi/.env
+    - restApi/restApi/restApi/.env
     depends_on:
       - db
-  nginx:
-    build: ./nginx
-    ports:
-      - "80:80"
+  # nginx:
+  #   build: ./nginx
+  #   ports:
+  #     - "80:80"
