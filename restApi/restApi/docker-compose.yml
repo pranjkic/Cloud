@@ -5,24 +5,62 @@
 version: "3.9"
    
 services:
-  db:
+  db1:
     image: postgres
+    container_name: db1
     environment:
       - POSTGRES_DB=cloud_db
       - POSTGRES_USER=cloud_admin
       - POSTGRES_PASSWORD=password
-  web:
-    build: ./restApi/restApi
+  db2:
+    image: postgres
+    container_name: db2
+    environment:
+      - POSTGRES_DB=cloud_db
+      - POSTGRES_USER=cloud_admin
+      - POSTGRES_PASSWORD=password
+
+
+  web1:
+    #build: ./restApi/restApi
+    build: .
+    container_name: web1
     volumes:
       - .:/code
     ports:
-      - "8000:8000"
-    container_name: web
+      - "8001:8000"    
     env_file:
-    - restApi/restApi/restApi/.env
+    - restApi/.env
+    #- restApi/restApi/restApi/.env    
     depends_on:
-      - db
-  # nginx:
-  #   build: ./nginx
-  #   ports:
-  #     - "80:80"
+      - db1
+  web2:
+    #build: ./restApi/restApi
+    build: .
+    container_name: web2
+    volumes:
+      - .:/code
+    ports:
+      - "8002:8000"    
+    env_file:
+    - restApi/.env
+    #- restApi/restApi/restApi/.env    
+    depends_on:
+      - db2
+
+
+  nginx1:
+    container_name: nginx1
+    build: ./nginx
+    ports:
+      - "81:80"
+    links:
+      - web1
+  nginx2:
+    container_name: nginx2
+    build: ./nginx/load_balancer
+    ports:
+      - "82:80"
+    links:
+      - web1
+      - web2
