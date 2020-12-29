@@ -28,7 +28,7 @@ jobs:
           context: ./restApi/restApi
           file: ./restApi/restApi/Dockerfile
           push: true
-          tags: pranjkic/cloud_repo:latest
+          tags: pranjkic/Cloud:latest
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
