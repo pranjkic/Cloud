@@ -47,18 +47,18 @@ services:
       - db2
 
 
-  nginx1:
-    container_name: nginx1
-    build: ./nginx
-    ports:
-      - "81:80"
-    links:
-      - web1
+  # nginx1:
+  #   container_name: nginx1
+  #   build: ./nginx
+  #   ports:
+  #     - "81:80"
+  #   links:
+  #     - web1
   nginx2:
     container_name: nginx2
     build: ./nginx/load_balancer
     ports:
-      - "82:80"
+      - "80:80"
     links:
       - web1
       - web2
