@@ -5,6 +5,13 @@
 version: "3.9"
    
 services:
+  # db:                          #baza za pokretanje preko vagrant-a
+  #   image: postgres
+  #   container_name: db
+  #   environment:
+  #     - POSTGRES_DB=cloud_db
+  #     - POSTGRES_USER=cloud_admin
+  #     - POSTGRES_PASSWORD=password
   db1:
     image: postgres
     container_name: db1
@@ -21,8 +28,19 @@ services:
       - POSTGRES_PASSWORD=password
 
 
+  # web:                          #konfiguracija za pokretanje preko vagrant-a
+  #   build: .
+  #   container_name: web
+  #   volumes:
+  #   - .:/code
+  #   ports:
+  #     - "8000:8000"    
+  #   env_file:
+  #   - restApi/db1.env
+  #   depends_on:
+  #     - db
+
   web1:
-    #build: ./restApi/restApi
     build: .
     container_name: web1
     volumes:
@@ -30,8 +48,7 @@ services:
     ports:
       - "8001:8000"    
     env_file:
-    - restApi/db1.env
-    #- restApi/restApi/restApi/.env    
+    - restApi/db1.env  
     depends_on:
       - db1
   web2:
