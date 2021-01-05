@@ -19,8 +19,15 @@ def initialize(request):
 
 @api_view(['GET'])
 def count(request):
-    value = AccessCounter.objects.get(id=1)
-    value.value = value.value + 1
-    value.save()
-    return Response(value.value)
-    #return Response("OK")
+    try:
+        value = AccessCounter.objects.get(id=1)
+        value.value = value.value + 1
+        value.save()
+        return Response(value.value)
+    except:
+        serializer = AccessCounterSerializer(data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+
+        return Response(serializer.data)

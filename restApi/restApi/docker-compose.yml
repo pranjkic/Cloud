@@ -5,14 +5,15 @@
 version: "3.9"
    
 services:
-  # db:                          #baza za pokretanje preko vagrant-a
+  # db:                          #baza za pokretanje preko vagrant-a, pokrecetanje iz Cloud folder-a
   #   image: postgres
   #   container_name: db
   #   environment:
   #     - POSTGRES_DB=cloud_db
   #     - POSTGRES_USER=cloud_admin
   #     - POSTGRES_PASSWORD=password
-  db1:
+
+  db1:                          #baza za pokretanje preko docker-compose, pokretanje iz Cloud/restApi/restApi folder-a
     image: postgres
     container_name: db1
     environment:
@@ -28,7 +29,7 @@ services:
       - POSTGRES_PASSWORD=password
 
 
-  # web:                          #konfiguracija za pokretanje preko vagrant-a
+  # web:                          #konfiguracija za pokretanje preko vagrant-a, pokrecetanje iz Cloud folder-a, sa localhost gadjam post 8000
   #   build: .
   #   container_name: web
   #   volumes:
@@ -40,7 +41,7 @@ services:
   #   depends_on:
   #     - db
 
-  web1:
+  web1:                         #konfiguracija za pokretanje preko docker-compose, pokretanje iz Cloud/restApi/restApi folder-a, sa localhost gadjam post 80
     build: .
     container_name: web1
     volumes:
